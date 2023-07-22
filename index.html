@@ -8,19 +8,27 @@
     <link rel="stylesheet" href="./src/css/style.css">
     <!--es.modules.shism 폴리필-->
     <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.3/dist/es-module-shims.js"></script>
-
+    <!-- npm install --save three -->
+    <!-- <script type="importmap">        
+        {
+          "imports": {
+            "three": "./node_modules/three/build/three.module.js",
+            "three/addons/": "./node_modules/three/examples/jsm/"
+          }
+        }
+    </script> -->
+    <!-- cdn -->
     <script type="importmap">
         {
-            "imports":{              
-                //"three":"./node_modules/three/build/three.module.js" //npm install three로 설치할 경우  
-                "three": "https://unpkg.com/three@^0.154.0/build/three.module.js", // cdn 으로 설치할 경우
-                "three/addons/": "https://unpkg.com/three@^0.154.0/examples/jsm/"
+            "imports": {
+              "three": "https://unpkg.com/three@^0.154.0/build/three.module.js",
+              "three/addons/": "https://unpkg.com/three@^0.154.0/examples/jsm/"
             }
         }
-    </script>
+    </script> 
 </head>
 <body>
-    <canvas id="result" style="border:1px solid red; width:100vw;height:100vh;"></canvas>
+    <canvas id="result" style="width:100%;height:100%;"></canvas>
     <script src="./src/js/index.js" type="module"></script>
 </body>
 </html>

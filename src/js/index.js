@@ -1,5 +1,7 @@
 import * as THREE from "three";
-import WebGL from '../../node_modules/three/examples/jsm/capabilities/WebGL.js';
+import WebGL from 'three/addons/capabilities/WebGL.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 if (WebGL.isWebGLAvailable()){ // WebGL이 호환 된다면,
     const $result = document.querySelector('#result');
@@ -13,7 +15,7 @@ if (WebGL.isWebGLAvailable()){ // WebGL이 호환 된다면,
     camera.lookAt(0,0,0);
     // renderer : scene + camera, 화면을 그려주는 역할
     const renderer = new THREE.WebGLRenderer({canvas:$result, antialias:true, alpha:true});
-    renderer.setSize($result.clientWidth, $result.clientHeight);
+    renderer.setSize($result.clientWidth, $result.clientHeight); // renderer 사이즈와 canvas 사이즈 맞춤
     //document.body.appendChild(renderer.domElement);
 
     const light = new THREE.DirectionalLight(0xffffff);
