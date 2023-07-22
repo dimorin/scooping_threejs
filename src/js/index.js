@@ -28,9 +28,22 @@ if (WebGL.isWebGLAvailable()){ // WebGL이 호환 된다면,
    
     scene.add(box);
 
+    const controls = new OrbitControls(camera, $result);
+    //조작 설정
+    //controls.enableZoom = false;
+    //controls.enableRotate = false;
+    //controls.enablePan = false;
+    controls.minDistance = 2;
+    controls.maxDistance = 10;
+    controls.maxPolarAngle = Math.PI / 3;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = -10;
+    controls.enableDamping = true;
+    
     function animate(){
-        box.rotation.y += 0.01;
+        //box.rotation.y += 0.01;
         renderer.render(scene, camera);
+        controls.update();
         requestAnimationFrame(animate);
     }
     animate();
