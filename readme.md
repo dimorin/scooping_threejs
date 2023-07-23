@@ -16,3 +16,5 @@ OrthographicCamera - 아이소메트릭(등축 투영법)을 표현할 때 이 �
 camera의 초기 위치는 0 0 0 이기 때문에 scene 안에 객체를 잘 보여 주기 위해서는 position과 lookat을 설정해준다.
 
 MeshBasicMaterial - 빛에 영향을 받지 않는다.
+
+threejs.org/editor 사용 방법 ?
