@@ -23,10 +23,26 @@ if (WebGL.isWebGLAvailable()){ // WebGL이 호환 된다면,
     scene.add(light);
 
     const geometry = new THREE.BoxGeometry(1,1,1);
-    const material = new THREE.MeshStandardMaterial({color:0x2e6ff2});
+    const material = new THREE.MeshStandardMaterial({
+        color:0x2e6ff2,
+        //roughness:0.2,
+        //metalness:0.8, 
+        //side:THREE.DoubleSide, // 양면을 렌더링함, geometry가 plane일 때 더 극명하게 효과를 볼 수 있다.
+        //map,
+        //wireframe:true,
+        //transparent:true,
+        //opacity:0.8,
+    });
     const box = new THREE.Mesh(geometry, material);
-   
     scene.add(box);
+
+    // mesh 위치
+    //box.position.set(0,2,1);
+    // mesh 회전
+    //box.rotation.y = THREE.MathUtils.degToRad(30);
+    // mesh 크기
+    //box.scale.x = 1.2;
+    //box.scale.z = 0.8;
 
     const controls = new OrbitControls(camera, $result);
     //조작 설정
@@ -40,6 +56,12 @@ if (WebGL.isWebGLAvailable()){ // WebGL이 호환 된다면,
     controls.autoRotateSpeed = -10;
     controls.enableDamping = true;
     
+    //axesHelper
+    const axesHelper = new THREE.AxesHelper(10);
+    scene.add(axesHelper);
+    //box.add(axesHelper);  // mesh에도 축을 추가할 수 있다.
+    //box.position.x = 3;
+
     function animate(){
         //box.rotation.y += 0.01;
         renderer.render(scene, camera);
